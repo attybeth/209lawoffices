@@ -58,10 +58,16 @@
     section {
       margin-bottom: 40px;
     }
+    /* New container for grouping lawyer cards by row */
     .lawyer-list {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .lawyer-row {
+      display: flex;
       justify-content: space-around;
+      flex-wrap: wrap;
     }
     .lawyer-card {
       background: #f9f2e4; /* Light Gold background for cards */
@@ -72,6 +78,14 @@
       border-radius: 5px;
       box-shadow: 0 0 5px rgba(0,0,0,0.1);
       color: #1a213f; /* Deep Navy text for cards */
+    }
+    .lawyer-card img {
+      width: 2in;
+      height: 2in;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      object-fit: cover;
+      object-position: center 25%; /* Adjust as needed */
     }
     h1, h2, h3 {
       margin-top: 0;
@@ -86,8 +100,9 @@
       nav ul {
         flex-direction: column;
       }
-      .lawyer-list {
+      .lawyer-row {
         flex-direction: column;
+        align-items: center;
       }
     }
   </style>
@@ -120,7 +135,7 @@
     <section id="about">
       <h2>About Us</h2>
       <p>
-        209 Law Offices is composed of five lawyers holding separate practice. With our combined legal expertise, we achieve distinguished outcomes for our clients.
+        209 Law Offices is composed of five lawyers holding separate practices. With our combined legal expertise, we achieve distinguished outcomes for our clients.
       </p>
     </section>
     
@@ -128,65 +143,40 @@
     <section id="lawyers">
       <h2>Meet Our Team</h2>
       <div class="lawyer-list">
-        <!-- Lawyer 1 -->
-        <div class="lawyer-card">
-          <img src="lawyer1.jpg" alt="Atty. Clefford R. Lapez">
-          <h3>Atty. Clefford R. Lapez.</h3>
-          <p><strong>CPA Lawyer</strong></p>
-          <p>a CPA and Lawyer, offers strategic legal and financial solutions in tax, business, and estate matters..</p>
+        <!-- First Row: Lawyers 1, 2, and 3 -->
+        <div class="lawyer-row">
+          <!-- Lawyer 1 -->
+          <div class="lawyer-card">
+            <img src="lawyer1.jpg" alt="Atty. Clefford R. Lapez">
+            <h3>Atty. Clefford R. Lapez.</h3>
+          </div>
+          <!-- Lawyer 2 -->
+          <div class="lawyer-card">
+            <img src="lawyer2.jpg" alt="Atty. Nino Vince P. Suelto">
+            <h3>Atty. Nino Vince P. Suelto.</h3>
+          </div>
+          <!-- Lawyer 3 -->
+          <div class="lawyer-card">
+            <img src="lawyer3.jpg" alt="Atty. John Henry D. Seno">
+            <h3>Atty. John Henry D. Seno.</h3>
+          </div>
         </div>
-        <!-- Lawyer 2 -->
-        <div class="lawyer-card">
-          <img src="lawyer2.jpg" alt="Atty. Nino Vince P. Suelto">
-          <h3>Atty. Nino Vince P. Suelto.</h3>
-          <p><strong>Labor Law Specialist</strong></p>
-          <p>provides strategic legal support in labor law, specializing in compliance, dispute resolution, and employee relations.</p>
+        <!-- Second Row: Lawyers 4 and 5 -->
+        <div class="lawyer-row">
+          <!-- Lawyer 4 -->
+          <div class="lawyer-card">
+            <img src="lawyer4.jpg" alt="Atty. Valora France M. Aranas">
+            <h3>Atty. Valora France M. Aranas.</h3>
+          </div>
+          <!-- Lawyer 5 -->
+          <div class="lawyer-card">
+            <img src="lawyer5.jpg" alt="Atty. Julibeth Q. Tio">
+            <h3>Atty. Julibeth Q. Tio</h3>
+          </div>
         </div>
-        <!-- Lawyer 3 -->
-        <div class="lawyer-card">
-          <img src="lawyer3.jpg" alt="Atty. John Henry D. Seno">
-          <h3>Atty. John Henry D. Seno.</h3>
-          <p><strong>Criminal Defense Expert</strong></p>
-          <p>Bold and inquisitive, he leaves no stone unturned in pursuit of justice.</p>
-        </div>
-        <!-- Lawyer 4 -->
-        <div class="lawyer-card">
-          <img src="lawyer4.jpg" alt="Atty. Valora France M. Aranas">
-          <h3>Atty. Valora France M. Aranas.</h3>
-          <p><strong>Family Law Advocate</strong></p>
-          <p>Compassionate yet unyielding, she protects family values while questioning modern norms.</p>
-        </div>
-        <!-- Lawyer 5 -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>209 Law Offices</title>
-  <style>
-    /* This CSS rule applies to all images inside .lawyer-card */
-    .lawyer-card img {
-       width: 2in;
-  height: 2in;
-  border-radius: 50%;
-  margin-bottom: 10px;
-  object-fit: cover;
-  object-position: center 25%; /* Adjust the vertical position as needed */
-}
-
-  </style>
-</head>
-<body>
-        <div class="lawyer-card">
-          <img src="lawyer5.jpg" alt="Atty. Julibeth Q. Tio">
-          <h3>Atty. Julibeth Q. Tio</h3>
-          <p><strong>Real Estate & Property Law</strong></p>
-          <p>Merging old-school expertise with modern legal tactics to safeguard your investments.</p>
-        </div>
-</body>
-</html>  
-  </div>
-</section>
+      </div>
+    </section>
+    
     <!-- Contact Section -->
     <section id="contact">
       <h2>Contact Us</h2>
@@ -199,10 +189,8 @@
         <strong>Email:</strong> 209lawoffices@gmail.com
       </p>
       <div class="map">
-        <!-- Google Map Embed for "209 V. Rama Avenue, Cebu City, Philippines" -->
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3223.8878166195243!2d123.89670091523944!3d10.31081939222412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a997b8fdb2a1e7%3A0x2e70a45a1f1b222b!2s209%20V.%20Rama%20Ave%2C%20Cebu%20City%2C%20Cebu%2C%20Philippines!5e0!3m2!1sen!2sph!4v1681083332801" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
-
     </section>
   </div>
   
