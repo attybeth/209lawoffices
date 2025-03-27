@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>209 Law Offices</title>
+  <style>
+    /* Color scheme: Deep Navy (#1a213f) and Warm Gold (#c39f48) */
+    body {
+      font-family: "Georgia", serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f7f7;
+      color: #1a213f; /* Deep Navy text */
+      line-height: 1.6;
+    }
+    header {
+      background: #1a213f; /* Deep Navy header background */
+      color: #c39f48; /* Warm Gold header text */
+      padding: 20px 0;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    header p {
+      margin: 5px 0 0;
+      font-size: 1.2em;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      background: #1a213f; /* Deep Navy nav background */
+    }
+    nav ul li {
+      margin: 0;
+    }
+    nav ul li a {
+      color: #c39f48; /* Warm Gold nav links */
+      padding: 15px 20px;
+      display: block;
+      text-decoration: none;
+    }
+    nav ul li a:hover {
+      background: #c39f48; /* Warm Gold background on hover */
+      color: #1a213f; /* Deep Navy text on hover */
+    }
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 20px auto;
+      overflow: auto;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    .lawyer-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    .lawyer-card {
+      background: #f9f2e4; /* Light Gold background for cards */
+      margin: 10px;
+      padding: 20px;
+      flex: 1 1 200px;
+      text-align: center;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      color: #1a213f; /* Deep Navy text for cards */
+    }
+    h1, h2, h3 {
+      margin-top: 0;
+    }
+    footer {
+      background: #1a213f; /* Deep Navy footer background */
+      color: #c39f48; /* Warm Gold footer text */
+      text-align: center;
+      padding: 10px 0;
+    }
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+      }
+      .lawyer-list {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>209 LAW OFFICES</h1>
+    <p>Attorneys-At-Law, Notaries Public</p>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#lawyers">Our Lawyers</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  
+  <div class="container">
+    <!-- Home Section -->
+    <section id="home">
+      <h2>Welcome</h2>
+      <p>
+        At 209 Law Offices, we mix time-honored legal wisdom with a forward-thinking approach. Here, you won’t find any sugar-coated promises—just the honest truth and a healthy dose of wit to keep things lively.
+      </p>
+    </section>
+    
+    <!-- About Us Section -->
+    <section id="about">
+      <h2>About Us</h2>
+      <p>
+        Founded on principles that have stood the test of time, our firm has built its reputation on integrity and tenacity. We believe that if it worked back in the day, it can still work today—albeit with modern legal twists and a dash of skepticism. We ask the tough questions because the status quo deserves to be challenged.
+      </p>
+    </section>
+    
+    <!-- Lawyers Section -->
+    <section id="lawyers">
+      <h2>Meet Our Team</h2>
+      <div class="lawyer-list">
+        <div class="lawyer-card">
+          <h3>Atty. Clefford R. Lapez.</h3>
+          <p><strong>CPA Lawyer</strong></p>
+          <p>A seasoned litigator who’s seen it all and isn’t afraid to call a spade a spade.</p>
+        </div>
+        <div class="lawyer-card">
+          <h3>Atty. Nino Vince P. Suelto.</h3>
+          <p><strong>Corporate Law Specialist</strong></p>
+          <p>Sharp-minded and detail-oriented, he navigates the legal maze like a pro.</p>
+        </div>
+        <div class="lawyer-card">
+          <h3>Atty. John Henry D. Seno.</h3>
+          <p><strong>Criminal Defense Expert</strong></p>
+          <p>Bold and inquisitive, he leaves no stone unturned in pursuit of justice.</p>
+        </div>
+        <div class="lawyer-card">
+          <h3>Atty. Valora France M. Aranas.</h3>
+          <p><strong>Family Law Advocate</strong></p>
+          <p>Compassionate yet unyielding, she protects family values while questioning modern norms.</p>
+        </div>
+        <div class="lawyer-card">
+          <h3>Atty. Julibeth Q. Tio</h3>
+          <p><strong>Real Estate & Property Law</strong></p>
+          <p>Merging old-school expertise with modern legal tactics to safeguard your investments.</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>
+        Ready to take on your legal challenges head-on? Don’t hesitate to reach out and schedule a consultation.
+      </p>
+      <p>
+        <strong>Address:</strong> 209 V. Rama Avenue, Cebu City, Philippines<br>
+        <strong>Phone:</strong> 09953263720<br>
+        <strong>Email:</strong> 209lawoffices@gmail.com
+      </p>
+    </section>
+  </div>
+  
+  <footer>
+    <p>&copy; 2025 209 Law Offices. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
