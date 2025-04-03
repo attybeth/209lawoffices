@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>209 Law Offices</title>
   <style>
-    /* Color scheme: Dark Brown (#4E342E) and Warm Gold (#c39f48) */
+    /* Color scheme: Dark Brown (#4E342E) for header/nav/footer and Warm Gold (#c39f48) for accents */
     body {
       font-family: "Georgia", serif;
       margin: 0;
       padding: 0;
       background: #f7f7f7;
-      color: #4E342E; /* Dark brown text */
+      color: #1a213f; /* Deep Navy text (adjust as needed) */
       line-height: 1.6;
     }
     header {
@@ -23,7 +20,17 @@
       padding: 20px 0;
       text-align: center;
     }
-    
+    /* New container for header logo and text */
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+    .header-logo {
+      width: 60px;  /* Adjust the width as needed */
+      height: auto;
+    }
     header h1 {
       margin: 0;
       font-size: 2.5em;
@@ -81,7 +88,7 @@
       text-align: center;
       border-radius: 5px;
       box-shadow: 0 0 5px rgba(0,0,0,0.1);
-      color: #4E342E; /* Dark brown text */
+      color: #1a213f;
     }
     .lawyer-card img {
       width: 2in;
@@ -113,10 +120,13 @@
 </head>
 <body>
   <header>
-    <div class="header-content">
-      <img src="justice-logo.png" alt="Justice Logo">
-    <h1>209 LAW OFFICES</h1>
-    <h2>Attorneys-At-Law, Notaries Public</h2>
+    <div class="header-container">
+      <!-- Justice Logo placed beside the header text -->
+      <img src="justice-logo.png" alt="Justice Logo" class="header-logo">
+      <div class="header-text">
+        <h1>209 LAW OFFICES</h1>
+        <p>Attorneys-At-Law, Notaries Public</p>
+      </div>
     </div>
   </header>
   
@@ -125,7 +135,7 @@
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About Us</a></li>
       <li><a href="#lawyers">Our Lawyers</a></li>
-      <li><a href="#location">Location</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
   
@@ -146,7 +156,7 @@
     <section id="about">
       <h2>About Us</h2>
       <p>
-        209 Law Offices is composed of five lawyers holding separate practices.
+        209 Law Offices is composed of five lawyers holding separate practices. With our combined legal expertise, we achieve distinguished outcomes for our clients.
       </p>
     </section>
     
@@ -157,12 +167,12 @@
         <!-- First Row: Lawyers 1, 2, and 3 -->
         <div class="lawyer-row">
           <div class="lawyer-card">
-            <img src="lawyer1.jpg" alt="Atty. Valora France M. Aranas">
-            <h3>Atty. Valora France M. Aranas.</h3>
+            <img src="lawyer1.jpg" alt="Atty. Clefford R. Lapez">
+            <h3>Atty. Clefford R. Lapez.</h3>
           </div>
           <div class="lawyer-card">
-            <img src="lawyer2.jpg" alt="Atty. Clefford R. Lapez">
-            <h3>Atty. Clefford R. Lapez.</h3>
+            <img src="lawyer2.jpg" alt="Atty. Nino Vince P. Suelto">
+            <h3>Atty. Nino Vince P. Suelto.</h3>
           </div>
           <div class="lawyer-card">
             <img src="lawyer3.jpg" alt="Atty. John Henry D. Seno">
@@ -172,8 +182,8 @@
         <!-- Second Row: Lawyers 4 and 5 -->
         <div class="lawyer-row">
           <div class="lawyer-card">
-            <img src="lawyer4.jpg" alt="Atty. Nino Vince P. Suelto">
-            <h3>Atty. Nino Vince P. Suelto.</h3>
+            <img src="lawyer4.jpg" alt="Atty. Valora France M. Aranas">
+            <h3>Atty. Valora France M. Aranas.</h3>
           </div>
           <div class="lawyer-card">
             <img src="lawyer5.jpg" alt="Atty. Julibeth Q. Tio">
@@ -185,8 +195,10 @@
     
     <!-- Contact Section -->
     <section id="contact">
-      <h2>Location</h2>
-    
+      <h2>Contact Us</h2>
+      <p>
+        Ready to take on your legal challenges head-on? Don’t hesitate to reach out and schedule a consultation.
+      </p>
       <p>
         <strong>Address:</strong> 209 V. Rama Avenue, Cebu City, Philippines
       </p>
