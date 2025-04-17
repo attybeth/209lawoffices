@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>209 Law Offices</title>
+  <meta name="description" content="209 Law Offices in Cebu City - A shared address of five independent lawyers offering professional legal services and notarial work.">
+  <title>209 Law Offices | Cebu City Legal Services & Notary Public</title>
   <style>
     /* Color scheme: Dark Brown (#4E342E) for header/nav/footer and Warm Gold (#c39f48) for accents */
     body {
@@ -129,7 +130,7 @@
   transform: translateY(-5px);
   box-shadow: 0 8px 18px rgba(0,0,0,0.2);
 }
-lawyer-card h3 {
+.lawyer-card h3 {
   font-size: 1.15em;
   margin-bottom: 10px;
   color: #1a213f;
@@ -197,6 +198,88 @@ html {
     background-color: transparent;
   }
 }
+@keyframes fadeDown {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+/* Navigation link hover effect */
+.navbar a {
+  color: #FFFFFF;  /* base color (cream/white) */
+  position: relative;
+  transition: color 0.3s ease;
+}
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -2px;
+  width: 0%; height: 2px;
+  background: #d4af37;             /* gold underline */
+  transition: width 0.3s ease;
+}
+.navbar a:hover {
+  color: #ffeaba;                  /* lighter warm tone on hover */
+}
+.navbar a:hover::after {
+  width: 100%;                     /* underline expands on hover */
+}
+
+/* Lawyer card hover effect */
+.lawyer-card {
+  background: #fdf6e3;             /* cream background example */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.lawyer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);  /* subtle shadow on hover */
+}
+/* If the card contains an image: */
+.lawyer-card img {
+  transition: transform 0.4s ease;
+}
+.lawyer-card:hover img {
+  transform: scale(1.05);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { 
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+}
+
+/* Apply the animation to header elements */
+.site-logo {
+  animation: fadeDown 0.6s ease-out 0s forwards;
+}
+.site-title {
+  animation: fadeDown 0.6s ease-out 0.2s forwards;   /* 0.2s delay */
+}
+.site-tagline {
+  animation: fadeDown 0.6s ease-out 0.4s forwards;   /* 0.4s delay */
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(212,175,55, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 20px 15px rgba(212,175,55, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(212,175,55, 0);
+  }
+}
+.cta-button {
+  /* normal button styling here */
+  transition: transform 0.3s;
+}
+.cta-button:hover {
+  transform: scale(1.03);  /* slight grow on hover for feedback */
+}
+/* Add a class (e.g. .pulse) to trigger the continuous glow pulse */
+.cta-button.pulse {
+  animation: pulseGlow 2s infinite;
+}
 
 .highlight {
   animation: softHighlight 1.5s ease-in-out;
@@ -204,13 +287,37 @@ html {
   border-radius: 8px;
   padding: 2px 6px;
 }
+.contact-form input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(212,175,55, 0.5);  /* gold glow outline */
+  transition: box-shadow 0.3s ease;
+}
+.cta-link::after {
+  content: " →";
+  opacity: 0;
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
+}
+
+.cta-link:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+.contact-form {
+  margin-top: 30px;
+  padding: 15px;
+  border: 2px solid #c39f48;
+  border-radius: 8px;
+  background-color: #fdf6e3;
+}
+
 
   </style>
 </head>
 <body>
   <header>
     <div class="header-top">
-      <img src="https://attybeth.github.io/209lawoffices/images/justice-logo.JPG" alt="Justice Logo" class="header-logo">
+      <img src="https://attybeth.github.io/209lawoffices/images/justice-logo.JPG" alt="Justice Logo" class="header-logo" id="logo-img">
       <div class="header-text">
         <h1 id="law-office-name">209 LAW OFFICES</h1>
         <h2 id="law-office-tagline">Attorneys-At-Law|Notaries Public</h2> <!-- FIXED closing tag -->
@@ -224,8 +331,9 @@ html {
     <ul>
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About Us</a></li>
-      <li><a href="#julibeth-tio">Our Lawyers</a></li>
+      <li><a href="#julibeth-tio" aria-label="Jump to Atty. Julibeth Tio's card">Our Lawyers</a></li>
       <li><a href="#julibeth-tio">Contact</a></li>
+
     </ul>
   </nav>
   
@@ -313,72 +421,87 @@ html {
     
     <!-- Contact Section -->
     <section id="contact">
-      <h2>Office Location</h2>
+      <h2>Contact Us</h2>
       <div class="highlight-paragraph">
-      <p>
-        <strong>"Please contact the individual counsel directly for appointments."</strong>
-      </p>
-      <p>
-        <h3>209 V. Rama Avenue, Brgy. Calamba, Cebu City, Philippines 6000</h3>
-      </p>
-    </div>
-      <div class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3223.8878166195243!2d123.89670091523944!3d10.31081939222412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a997b8fdb2a1e7%3A0x2e70a45a1f1b222b!2s209%20V.%20Rama%20Ave%2C%20Cebu%20City%2C%20Cebu%2C%20Philippines!5e0!3m2!1sen!2sph!4v1681083332801" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <p>
+          <strong>
+            To schedule an appointment, feel free to reach out to your chosen counsel directly or use the form below. We’ll be in touch shortly.
+          </strong>
+        </p>
+        <!-- Embedded Google Form -->
+      <div class="contact-form">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeBYfZx-K6FYTQn7upjDPrl2S3MHSWmGaKFK-VH3RzH1076zg/viewform?embedded=true" 
+          width="100%" 
+          height="1190" 
+          frameborder="0" 
+          marginheight="0" 
+          marginwidth="0">
+          Loading…
+        </iframe>
       </div>
-    </div>
     </section>
-  </div>
+    <h2>Office Location</h2>
+        <h3>209 V. Rama Avenue, Brgy. Calamba, Cebu City, Philippines 6000</h3>
+      </div>
+      <div class="map" style="margin-bottom: 30px;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3223.8878166195243!2d123.89670091523944!3d10.31081939222412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a997b8fdb2a1e7%3A0x2e70a45a1f1b222b!2s209%20V.%20Rama%20Ave%2C%20Cebu%20City%2C%20Cebu%2C%20Philippines!5e0!3m2!1sen!2sph!4v1681083332801" 
+          width="100%" 
+          height="450" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+      </div>
+       
+     
   
   <footer>
     <p>&copy; 2025 209 Law Offices. All Rights Reserved.</p>
   </footer>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const target = document.getElementById("julibeth-tio");
+      const julibethCard = document.getElementById("julibeth-tio");
+      julibethCard.classList.add("highlighted");
+  
+      setTimeout(() => {
+        julibethCard.classList.remove("highlighted");
+      }, 2000);
   
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              target.classList.add("highlighted");
-  
-              // Remove the class after animation so it can be retriggered
+            if (entry.isIntersecting && !julibethCard.classList.contains("highlighted")) {
+              julibethCard.classList.add("highlighted");
               setTimeout(() => {
-                target.classList.remove("highlighted");
+                julibethCard.classList.remove("highlighted");
               }, 2000);
             }
           });
         },
         {
-          threshold: 0.6, // 60% of the element is visible
+          threshold: 0.6,
         }
       );
   
-      if (target) {
-        observer.observe(target);
-      }
+      observer.observe(julibethCard);
+  
+      const elements = [
+        document.getElementById("logo-img"),
+        document.getElementById("law-office-name"),
+        document.getElementById("law-office-tagline")
+      ];
+  
+      elements.forEach((el, index) => {
+        setTimeout(() => {
+          el.classList.add("highlight");
+          setTimeout(() => {
+            el.classList.remove("highlight");
+          }, 1600);
+        }, index * 700);
+      });
     });
   </script>
-  <script>
-  window.addEventListener("DOMContentLoaded", () => {
-    const elements = [
-      document.getElementById("logo-img"),
-      document.getElementById("law-office-name"),
-      document.getElementById("law-office-tagline")
-    ];
-
-    elements.forEach((el, index) => {
-      setTimeout(() => {
-        el.classList.add("highlight");
-
-        // Remove the class after animation ends
-        setTimeout(() => {
-          el.classList.remove("highlight");
-        }, 1600);
-      }, index * 700); // Staggered timing
-    });
-  });
-</script>
+  
 
 </body>
 </html>
