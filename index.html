@@ -174,6 +174,21 @@ lawyer-card h3 {
   color: #4E342E;              /* Dark brown for the section title */
 }
 
+html {
+  scroll-behavior: smooth;
+}
+@keyframes highlightFade {
+  0% {
+    background-color: #fff3cd; /* light gold highlight */
+  }
+  100% {
+    background-color: #c39f48; /* revert back to warm gold */
+  }
+}
+
+.lawyer-card.highlighted {
+  animation: highlightFade 2s ease-in-out;
+}
 
   </style>
 </head>
@@ -194,8 +209,8 @@ lawyer-card h3 {
     <ul>
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About Us</a></li>
-      <li><a href="#lawyers">Our Lawyers</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#julibeth-tio">Our Lawyers</a></li>
+      <li><a href="#julibeth-tio">Contact</a></li>
     </ul>
   </nav>
   
@@ -255,7 +270,9 @@ lawyer-card h3 {
             <img src="https://attybeth.github.io/209lawoffices/images/lawyer2.jpg" alt="Portrait">
             <h3>Atty. Nino Vince P. Suelto</h3>
           </div>
-          <div class="lawyer-card">
+
+
+          <div class="lawyer-card" id="julibeth-tio">
             <img src="https://attybeth.github.io/209lawoffices/images/lawyer5.jpg" alt="Portrait of Atty. Julibeth Q. Tio">
             <h3>Atty. Julibeth Quinain Tio</h3>
             <div class="contact-info">
@@ -300,5 +317,33 @@ lawyer-card h3 {
   <footer>
     <p>&copy; 2025 209 Law Offices. All Rights Reserved.</p>
   </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const target = document.getElementById("julibeth-tio");
+  
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              target.classList.add("highlighted");
+  
+              // Remove the class after animation so it can be retriggered
+              setTimeout(() => {
+                target.classList.remove("highlighted");
+              }, 2000);
+            }
+          });
+        },
+        {
+          threshold: 0.6, // 60% of the element is visible
+        }
+      );
+  
+      if (target) {
+        observer.observe(target);
+      }
+    });
+  </script>
+  
 </body>
 </html>
