@@ -16,38 +16,61 @@
       line-height: 1.6;
     }
     header {
-    background: #c39f48; /* Warm Gold nav links */
-    color: #1a213f;       /* Deep navy for contrast */
-    padding: 20px 0;
-    text-align: center;
-    }
+  background-image: url('https://attybeth.github.io/209lawoffices/images/background-image.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 350px;
+  position: relative;
+  color: #fdf6e3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
 
+.header-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+  position: relative;
+}
 
-   .header-top {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-   }
+.header-logo {
+  width: 130px;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  border: 4px solid #fdf6e3;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 4px;
+}
 
-   .header-logo {
-    width: 160px; /* Doubled size */
-    height: auto;
-    background-color: #fdf6e3; /* Optional - keeps background seamless */
-    border-radius: 50%;        /* Optional - if image is round */
-    padding: 5px;              /* Optional - keeps spacing clean */
-   }
+.header-text h1 {
+  font-size: 2.4em;
+  margin: 0;
+  letter-spacing: 1px;
+}
 
+.header-text h2 {
+  font-size: 1.2em;
+  font-weight: normal;
+  margin-top: 8px;
+  letter-spacing: 0.5px;
+}
 
+/* Optional dark overlay */
+header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
-    header p {
-      margin: 5px 0 0;
-      font-size: 1.2em;
-    }
     nav ul {
       list-style: none;
       padding: 0;
@@ -310,21 +333,40 @@ html {
   border-radius: 8px;
   background-color: #fdf6e3;
 }
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.5s;
+}
 
 
   </style>
 </head>
 <body>
   <header>
-    <div class="header-top">
-      <img src="https://attybeth.github.io/209lawoffices/images/justice-logo.JPG" alt="Justice Logo" class="header-logo" id="logo-img">
-      <div class="header-text">
+    <div class="header-overlay">
+      <img src="https://attybeth.github.io/209lawoffices/images/justice-logo.JPG" alt="Justice Logo" class="header-logo fade-in">
+      <div class="header-text fade-in delay-1">
         <h1 id="law-office-name">209 LAW OFFICES</h1>
-        <h2 id="law-office-tagline">Attorneys-At-Law|Notaries Public</h2> <!-- FIXED closing tag -->
-
+        <h2 id="law-office-tagline">Attorneys-At-Law | Notaries Public</h2>
       </div>
     </div>
   </header>
+  
   
   
   <nav>
