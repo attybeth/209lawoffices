@@ -132,6 +132,10 @@ nav ul li a:hover {
     h1, h2, h3 {
       margin-top: 0;
     }
+    section h2 {
+  color: #fdf6e3;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
     footer {
       background: #c39f48; /* Warm Gold footer text */
       color: #4E342E; /* Dark Brown footer background */
@@ -183,13 +187,17 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 .highlight-paragraph {
-  background-color: #fdf6e3; /* Light warm gold */
+  background-color: rgba(253, 246, 227, 0.25); /* lighter transparency */
   padding: 20px;
-  border-left: 6px solid #c39f48; /* Stronger gold border */
+  border-left: 6px solid #c39f48;
   border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   margin-top: 15px;
+
+  color: #f5f5f5; /* Darker text for better readability */
+  font-weight: bold;
 }
+
 
 
 .highlight-section h2 {
@@ -350,6 +358,28 @@ html {
 .map {
   margin-bottom: 30px;
 }
+body {
+  font-family: "Georgia", serif;
+  margin: 0;
+  padding: 0;
+  color: #1a213f;
+  line-height: 1.6;
+
+  background-image: url('https://attybeth.github.io/209lawoffices/images/full-background.JPG');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* Add a semi-transparent layer to soften the background for content */
+.container {
+  padding: 20px;
+}
+
+
+
+
 
 
   </style>
