@@ -401,28 +401,40 @@ body {
       animation: glowPulse 2s ease-in-out;
     }
 
-    /* Sparkle effect on hover */
+    /* More Intense Sparkle effect on hover */
     .lawyer-card:hover::after {
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background-image: radial-gradient(circle, rgba(255,255,255,0.6) 10%, transparent 11%),
-                        radial-gradient(circle, rgba(255,255,255,0.4) 10%, transparent 11%);
-      background-position: 20% 30%, 80% 70%;
-      background-size: 5px 5px;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.8) 10%, transparent 11%),
+                        radial-gradient(circle, rgba(255,255,255,0.5) 10%, transparent 11%),
+                        radial-gradient(circle, rgba(255,255,0,0.6) 6%, transparent 7%);
+      background-position: 20% 30%, 80% 70%, 50% 50%;
+      background-size: 6px 6px;
       background-repeat: no-repeat;
       pointer-events: none;
-      animation: sparkle 1.5s infinite linear;
+      animation: sparkle 1.2s infinite linear;
     }
 
     @keyframes sparkle {
-      0% { background-position: 20% 30%, 80% 70%; }
-      50% { background-position: 25% 35%, 75% 65%; }
-      100% { background-position: 20% 30%, 80% 70%; }
+      0% { background-position: 20% 30%, 80% 70%, 50% 50%; }
+      50% { background-position: 25% 35%, 75% 65%, 48% 52%; }
+      100% { background-position: 20% 30%, 80% 70%, 50% 50%; }
     }
 
     .lawyer-card {
       position: relative;
+    }
+    /* Highlight each contact info line */
+    .contact-info a {
+      transition: transform 0.3s, background-color 0.3s;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+
+    .contact-info a.highlighted-contact {
+      background-color: rgba(255, 255, 0, 0.2);
+      transform: scale(1.05);
     }
 </style>
 
@@ -591,20 +603,27 @@ body {
   <!-- ===== JAVASCRIPT SECTION ===== -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      // === Highlight Julibeth Card repeatedly every 10 seconds ===
+      // === Highlight Julibeth Card repeatedly every 6 seconds ===
       const julibethCard = document.getElementById("julibeth-tio");
+      const contactLinks = julibethCard.querySelectorAll(".contact-info a");
 
       const pulseHighlight = () => {
-        julibethCard.classList.add("highlighted");
+        julibethCard.classList.add("highlighted", "glow");
+
+        contactLinks.forEach((link, index) => {
+          setTimeout(() => link.classList.add("highlighted-contact"), index * 300);
+          setTimeout(() => link.classList.remove("highlighted-contact"), 1800 + index * 100);
+        });
+
         setTimeout(() => {
-          julibethCard.classList.remove("highlighted");
-        }, 2000);
+          julibethCard.classList.remove("highlighted", "glow");
+        }, 2200);
       };
 
       // Initial pulse on load
       pulseHighlight();
 
-      // Repeat pulse every 5 seconds
+      // Repeat pulse every 6 seconds
       setInterval(() => {
         pulseHighlight();
       }, 10000);
