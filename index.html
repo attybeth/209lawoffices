@@ -460,6 +460,68 @@ body {
       background: rgba(90, 78, 60, 0.2); /* Extremely transparent Legal Taupe */
       backdrop-filter: blur(4px);
     }
+
+ /* Scroll Reveal Animation */
+
+    .reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+    /* Lightbox Styles */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .lightbox-overlay.active {
+      display: flex;
+    }
+
+    .lightbox-overlay img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(255,255,255,0.2);
+    }
+
+    .lightbox-overlay:after {
+      content: "✖";
+      position: absolute;
+      top: 20px; right: 30px;
+      font-size: 2em;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* Lightbox-enabled image cursor */
+    .lightbox-enabled {
+      cursor: zoom-in;
+    }
+
+    /* Existing styles... */
+    .lawyer-card img {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      margin-bottom: 15px;
+      border: 4px solid #c39f48;
+    }
+
 </style>
 
 <!-- ===== CSS SECTION END ===== -->
@@ -518,7 +580,30 @@ body {
         “Each counsel in this office exercises the legal profession in a manner consistent with its highest traditions—measured, principled, and mindful of its public trust.”
       </p>
     </section>
-    
+    <!-- Lightbox container -->
+  <div class="lightbox-overlay" id="lightbox-overlay"></div>
+
+  <!-- Add class="reveal" to section for animation -->
+  <section id="home" class="reveal">
+    <!-- content -->
+  </section>
+    <!-- Add class="reveal" to section for animation -->
+  <section id="home" class="reveal">
+    <!-- content -->
+  </section>
+
+  <section id="about" class="reveal">
+    <!-- content -->
+  </section>
+
+  <section id="lawyers" class="reveal">
+    <!-- content -->
+  </section>
+
+  <section id="contact" class="reveal">
+    <!-- content -->
+  </section>
+
     <!-- ===== LAWYERS SECTION ===== -->
     <section id="lawyers">
       <h2>Meet the Lawyers</h2>
@@ -699,6 +784,32 @@ btn.onclick = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
+<!-- ===== Scroll Reveal Animation ===== -->
+
+const revealElements = document.querySelectorAll('.reveal');
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+    }
+  });
+}, { threshold: 0.2 });
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+// === Lightbox functionality ===
+const lightbox = document.getElementById('lightbox-overlay');
+      document.querySelectorAll('.lightbox-enabled').forEach(img => {
+        img.addEventListener('click', () => {
+          lightbox.innerHTML = `<img src="${img.src}" alt="">`;
+          lightbox.classList.add('active');
+        });
+      });
+
+      lightbox.addEventListener('click', () => {
+        lightbox.classList.remove('active');
+      });
 
     });
 
