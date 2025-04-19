@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+    <!-- ===== HEAD SECTION START ===== -->
 <head>
+  <!-- ===== META AND TITLE ===== -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="209 Law Offices in Cebu City - A shared address of five independent lawyers offering professional legal services and notarial work.">
   <title>209 Law Offices | Cebu City Legal Services & Notary Public</title>
+
+  <!-- ===== CSS SECTION START ===== -->
   <style>
-    /* Color scheme: Dark Brown (#4E342E) for header/nav/footer and Warm Gold (#c39f48) for accents */
+  /* ===== BASE STYLES ===== */
     body {
       font-family: "Georgia", serif;
       margin: 0;
@@ -15,20 +19,22 @@
       color: #1a213f; /* Deep Navy text (adjust as needed) */
       line-height: 1.6;
     }
-    header {
-  background-image: url('https://attybeth.github.io/209lawoffices/images/background-image.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 350px;
-  position: relative;
-  color: #fdf6e3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  overflow: hidden;
-}
+
+  /* ===== HEADER SECTION ===== */  
+  header {
+    background-image: url('https://attybeth.github.io/209lawoffices/images/background-image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 350px;
+    position: relative;
+    color: #fdf6e3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+  }
 
 .header-overlay {
   display: flex;
@@ -70,7 +76,7 @@ header::before {
   background: rgba(0, 0, 0, 0.4);
   z-index: 0;
 }
-
+/* ===== NAVIGATION ===== */
 nav ul {
   list-style: none;
   padding: 0;
@@ -90,28 +96,30 @@ nav ul li a:hover {
   color: #4E342E;
 }
 
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 20px auto;
+  overflow: auto;
+}
+section {
+  margin-bottom: 40px;
+}
 
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: 20px auto;
-      overflow: auto;
-    }
-    section {
-      margin-bottom: 40px;
-    }
-    /* Grouping lawyer cards by row */
-    .lawyer-list {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .lawyer-row {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-    }
-    .lawyer-card {
+/* Grouping lawyer cards by row */
+.lawyer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.lawyer-row {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+/* ===== LAWYER CARD STYLES ===== */
+.lawyer-card {
   background: rgba(253, 246, 227, 0.85); /* Slightly transparent cream */
   margin: 15px;
   padding: 25px;
@@ -144,6 +152,8 @@ nav ul li a:hover {
       text-align: center;
       padding: 10px 0;
     }
+
+ /* ===== MEDIA QUERIES ===== */   
     @media (max-width: 600px) {
       nav ul {
         flex-direction: column;
@@ -153,7 +163,8 @@ nav ul li a:hover {
         align-items: center;
       }
     }
-    .lawyer-card:hover {
+
+.lawyer-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 18px rgba(0,0,0,0.2);
 }
@@ -200,8 +211,6 @@ nav ul li a:hover {
   font-weight: bold;
 }
 
-
-
 .highlight-section h2 {
   color: #4E342E;              /* Dark brown for the section title */
 }
@@ -209,6 +218,7 @@ nav ul li a:hover {
 html {
   scroll-behavior: smooth;
 }
+
 @keyframes highlightFade {
   0% {
     background-color: #fff3cd; /* light gold highlight */
@@ -233,6 +243,7 @@ html {
   0% { opacity: 0; transform: translateY(-20px); }
   100% { opacity: 1; transform: translateY(0); }
 }
+
 /* Navigation link hover effect */
 .navbar a {
   color: #FFFFFF;  /* base color (cream/white) */
@@ -379,14 +390,48 @@ body {
   padding: 20px;
 }
 
+/* Additional Animation for Julibeth Card */
+@keyframes glowPulse {
+      0% { box-shadow: 0 0 0 0 rgba(255, 255, 0, 0.8); }
+      50% { box-shadow: 0 0 25px 15px rgba(255, 255, 0, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 255, 0, 0); }
+    }
 
+    .lawyer-card.glow {
+      animation: glowPulse 2s ease-in-out;
+    }
 
+    /* Sparkle effect on hover */
+    .lawyer-card:hover::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.6) 10%, transparent 11%),
+                        radial-gradient(circle, rgba(255,255,255,0.4) 10%, transparent 11%);
+      background-position: 20% 30%, 80% 70%;
+      background-size: 5px 5px;
+      background-repeat: no-repeat;
+      pointer-events: none;
+      animation: sparkle 1.5s infinite linear;
+    }
 
+    @keyframes sparkle {
+      0% { background-position: 20% 30%, 80% 70%; }
+      50% { background-position: 25% 35%, 75% 65%; }
+      100% { background-position: 20% 30%, 80% 70%; }
+    }
 
+    .lawyer-card {
+      position: relative;
+    }
+</style>
 
-  </style>
+<!-- ===== CSS SECTION END ===== -->
 </head>
+<!-- ===== HEAD SECTION END ===== -->
+
 <body>
+  <!-- ===== HEADER ===== -->
   <header>
     <div class="header-overlay">
       <img src="https://attybeth.github.io/209lawoffices/images/justice-logo.JPG" alt="Justice Logo" class="header-logo fade-in" id="logo-img">>
@@ -397,8 +442,7 @@ body {
     </div>
   </header>
   
-  
-  
+    <!-- ===== NAVIGATION ===== -->
   <nav>
     <ul>
       <li><a href="#home">Home</a></li>
@@ -409,8 +453,9 @@ body {
     </ul>
   </nav>
   
+  <!-- ===== MAIN CONTENT ===== -->
   <div class="container">
-    <!-- Home Section -->
+    <!-- ===== HOME SECTION ===== -->
     <section id="home">
       <h2>Welcome to 209 Law Offices</h2>
       <div class="highlight-paragraph">
@@ -423,7 +468,7 @@ body {
     </div>
     </section>
     
-    <!-- About Us Section -->
+    <!-- ===== ABOUT US SECTION ===== -->
     <section id="about">
       <h2>About Us</h2>
       <div class="highlight-paragraph">
@@ -438,7 +483,7 @@ body {
       </p>
     </section>
     
-    <!-- Lawyers Section -->
+    <!-- ===== LAWYERS SECTION ===== -->
     <section id="lawyers">
       <h2>Meet the Lawyers</h2>
       <div class="lawyer-list">
@@ -449,10 +494,12 @@ body {
             <img src="https://attybeth.github.io/209lawoffices/images/lawyer4.jpg" alt="Portrait">
             <h3>Atty. Valora M. Aranas</h3>
           </div>
+
           <div class="lawyer-card">
             <img src="https://attybeth.github.io/209lawoffices/images/lawyer1.jpg" alt="Portrait">
             <h3>Atty. Clefford R. Lapez</h3>
           </div>
+
           <div class="lawyer-card">
             <img src="https://attybeth.github.io/209lawoffices/images/lawyer3.jpg" alt="Portrait">
             <h3>Atty. John Henry D. Seno</h3>
@@ -466,37 +513,43 @@ body {
             <h3>Atty. Nino Vince P. Suelto</h3>
           </div>
 
-
           <div class="lawyer-card" id="julibeth-tio">
             <img src="https://attybeth.github.io/209lawoffices/images/lawyer5.jpg" alt="Portrait of Atty. Julibeth Q. Tio">
             <h3>Atty. Julibeth Quinain Tio</h3>
+
             <div class="contact-info">
-                    <!-- Add this 👇 -->
+                    
+              <!-- Add this 👇 -->
+                    <!-- Facebook page -->
                     <a href="https://www.facebook.com/BethQuinain" target="_blank">
                       <span class="contact-icon">📘</span>
                       <span>facebook.com/BethQuinain</span>
-                      </a>
-              <a href="mailto:julibeth.tio@gmail.com">
-                <span class="contact-icon">✉️</span>
-                <span>julibeth.tio@gmail.com</span>
-              </a>
-              <a href="tel:+639177751982">
-                <span class="contact-icon">📱</span>
-                <span>0917-775-1982</span>
-              </a>
-              <a href="tel:+63322381300">
-                <span class="contact-icon">☎️</span>
-                <span>238-1300</span>
-              </a>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBYfZx-K6FYTQn7upjDPrl2S3MHSWmGaKFK-VH3RzH1076zg/viewform" target="_blank" rel="noopener noreferrer" style="margin-top: 10px; display: inline-block; background-color: #c39f48; color: #1a213f; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold;">
+                    </a>
+                    <!-- gmail -->
+                    <a href="mailto:julibeth.tio@gmail.com">
+                      <span class="contact-icon">✉️</span>
+                      <span>julibeth.tio@gmail.com</span>
+                    </a>
+                    <!-- mobile No. -->  
+                    <a href="tel:+639177751982">
+                    <span class="contact-icon">📱</span>
+                    <span>0917-775-1982</span>
+                   </a>
+                   <!-- Tel. No. -->
+                   <a href="tel:+63322381300">
+                   <span class="contact-icon">☎️</span>
+                   <span>238-1300</span>
+                  </a>
+                  <!-- Personalized Google Form -->
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBYfZx-K6FYTQn7upjDPrl2S3MHSWmGaKFK-VH3RzH1076zg/viewform" target="_blank" rel="noopener noreferrer" style="margin-top: 10px; display: inline-block; background-color: #c39f48; color: #1a213f; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold;">
                 Contact Atty. Julibeth via Form
-              </a>
+                 </a>
         
             </div>
           </div>      
          </section>
     
-    <!-- Contact Section -->
+    <!-- ===== CONTACT SECTION ===== -->
     <section id="contact">
       <h2>Contact Us</h2>
       <div class="highlight-paragraph">
@@ -509,12 +562,13 @@ body {
 <p style="margin-top: 40px;">
   <strong>"Should you prefer to communicate through a contact form, kindly click the link below to send us your message. We shall respond at the soonest opportunity."</strong>
 </p>
+
+ <!-- Google Form -->
 <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBYfZx-K6FYTQn7upjDPrl2S3MHSWmGaKFK-VH3RzH1076zg/viewform" target="_blank" rel="noopener noreferrer"
    style="display: inline-block; background-color: #c39f48; color: #1a213f; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; margin-bottom: 30px;">
   Open Contact Form
 </a>
-        
-       
+              
     <h3>Office Location</h3>
         <h3>209 V. Rama Avenue, Brgy. Calamba, Cebu City, Philippines 6000</h3>
       </div>
@@ -529,27 +583,38 @@ body {
       </div>
        
      
-  
+  <!-- ===== FOOTER ===== -->
   <footer>
     <p>&copy; 2025 209 Law Offices. All Rights Reserved.</p>
   </footer>
+
+  <!-- ===== JAVASCRIPT SECTION ===== -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      // === Highlight Julibeth Card repeatedly every 10 seconds ===
       const julibethCard = document.getElementById("julibeth-tio");
-      julibethCard.classList.add("highlighted");
-  
-      setTimeout(() => {
-        julibethCard.classList.remove("highlighted");
-      }, 2000);
-  
+
+      const pulseHighlight = () => {
+        julibethCard.classList.add("highlighted");
+        setTimeout(() => {
+          julibethCard.classList.remove("highlighted");
+        }, 2000);
+      };
+
+      // Initial pulse on load
+      pulseHighlight();
+
+      // Repeat pulse every 5 seconds
+      setInterval(() => {
+        pulseHighlight();
+      }, 10000);
+
+      // === Observe if Julibeth card comes into view again ===
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting && !julibethCard.classList.contains("highlighted")) {
-              julibethCard.classList.add("highlighted");
-              setTimeout(() => {
-                julibethCard.classList.remove("highlighted");
-              }, 2000);
+              pulseHighlight();
             }
           });
         },
@@ -557,9 +622,10 @@ body {
           threshold: 0.6,
         }
       );
-  
+
       observer.observe(julibethCard);
   
+      // === Animate logo, name, and tagline on load ===
       const elements = [
         document.getElementById("logo-img"),
         document.getElementById("law-office-name"),
@@ -576,7 +642,7 @@ body {
       });
     });
   </script>
-  
+  <!-- ===== JAVASCRIPT SECTION END ===== -->
 
 </body>
 </html>
