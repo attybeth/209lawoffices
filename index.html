@@ -265,6 +265,12 @@ html {
   width: 100%;                     /* underline expands on hover */
 }
 
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
 /* Lawyer card hover effect */
 
 .lawyer-card:hover {
@@ -436,7 +442,23 @@ body {
       background-color: rgba(255, 255, 0, 0.2);
       transform: scale(1.05);
     }
-   
+
+    #backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #c39f48;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: none;
+  z-index: 999;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
 </style>
 
 <!-- ===== CSS SECTION END ===== -->
@@ -601,6 +623,12 @@ body {
     <p>&copy; 2025 209 Law Offices. All Rights Reserved.</p>
   </footer>
 
+<!-- ===== Back to Top Button ===== -->
+  <button id="backToTop" title="Go to top">⬆
+
+  </button>
+
+
   <!-- ===== JAVASCRIPT SECTION ===== -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -661,7 +689,19 @@ body {
           }, 1600);
         }, index * 700); // staggered animation delay
       });
+
+      const btn = document.getElementById("backToTop");
+window.onscroll = () => {
+  btn.style.display = window.scrollY > 300 ? "block" : "none";
+};
+btn.onclick = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+
     });
+
+    
   </script>
   <!-- ===== JAVASCRIPT SECTION END ===== -->
 
