@@ -265,11 +265,7 @@ html {
   width: 100%;                     /* underline expands on hover */
 }
 
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
+
 
 /* Lawyer card hover effect */
 
@@ -395,6 +391,13 @@ body {
 .container {
   padding: 20px;
 }
+
+/* Sticky Navigation Bar */
+nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
 /* Additional Animation for Julibeth Card */
 @keyframes glowPulse {
@@ -656,7 +659,7 @@ body {
       // Repeat pulse every 6 seconds
       setInterval(() => {
         pulseHighlight();
-      }, 10000);
+      }, 6000);
 
       // === Observe if Julibeth card comes into view again ===
       const observer = new IntersectionObserver(
