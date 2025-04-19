@@ -398,7 +398,7 @@ body {
     }
 
     .lawyer-card.glow {
-      animation: glowPulse 2s ease-in-out;
+      animation: glowPulse 2.2s ease-in-out;
     }
 
     /* More Intense Sparkle effect on hover */
@@ -436,6 +436,7 @@ body {
       background-color: rgba(255, 255, 0, 0.2);
       transform: scale(1.05);
     }
+   
 </style>
 
 <!-- ===== CSS SECTION END ===== -->
@@ -615,6 +616,7 @@ body {
           setTimeout(() => link.classList.remove("highlighted-contact"), 1800 + index * 100);
         });
 
+         
         setTimeout(() => {
           julibethCard.classList.remove("highlighted", "glow");
         }, 2200);
@@ -657,7 +659,7 @@ body {
           setTimeout(() => {
             el.classList.remove("highlight");
           }, 1600);
-        }, index * 700);
+        }, index * 700); // staggered animation delay
       });
     });
   </script>
