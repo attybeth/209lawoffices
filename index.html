@@ -453,8 +453,35 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
-  
-    
+
+.language-switcher {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+    }
+    .language-switcher button {
+      margin: 0 5px;
+      padding: 6px 12px;
+      border: none;
+      background-color: #c39f48;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    .lang-tagalog {
+      display: none;
+    } 
+    /* Calendar style override */
+    iframe {
+      filter: invert(0.9) sepia(0.6) saturate(2) hue-rotate(330deg) brightness(1.1);
+      border-radius: 8px;
+      border: 2px solid #c39f48;
+    }
+    h3 {
+      color: #fdf6e3; /* Match 'About Us' section font color */
+    }
 </style>
 <!-- ===== CSS SECTION END ===== -->
 
@@ -462,13 +489,21 @@ footer {
 <!-- ===== HEAD SECTION END ===== -->
 
 <body>
+
+  <!-- ===== LANGUAGE SWITCHER ===== -->
+  <div class="language-switcher">
+    <button onclick="switchLang('en')">🇺🇸 English</button>
+    <button onclick="switchLang('tl')">🇵🇭 Tagalog</button>
+  </div>
+
   <!-- ===== HEADER ===== -->
   <header>
     <div class="header-overlay">
       <img src="https://attybeth.github.io/209lawoffices/images/justice-logo.JPG" alt="Justice Logo" class="header-logo fade-in" id="logo-img">
       <div class="header-text fade-in delay-1">
         <h1 id="law-office-name">209 LAW OFFICES</h1>
-        <h2 id="law-office-tagline">Attorneys-At-Law | Notaries Public</h2>
+        <h2 id="law-office-tagline" class="lang-english">Attorneys-At-Law | Notaries Public</h2>
+        <h2 class="lang-tagalog">Mga Abugado at Notaryo Publiko</h2>
       </div>
     </div>
   </header>
@@ -582,28 +617,36 @@ footer {
     
     <!-- ===== CONTACT SECTION ===== -->
     <section id="contact">
-      <h2>Contact Us</h2>
+      <h2 class="lang-english">Contact Us</h2>
+      <h2 class="lang-tagalog">Makipag-ugnayan sa Amin</h2>
       <div class="highlight-paragraph">
-        <p>
-          <strong>
-            "For consultations, you may directly contact your preferred counsel."
-          </strong>
-        </p>
-        <!-- Add this before or after Office Location heading -->
-<p style="margin-top: 40px;">
-  <strong>"Should you prefer to communicate through a contact form, kindly click the link below to send us your message. We shall respond at the soonest opportunity."</strong>
-</p>
-
- <!-- Google Form -->
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSeBYfZx-K6FYTQn7upjDPrl2S3MHSWmGaKFK-VH3RzH1076zg/viewform" target="_blank" rel="noopener noreferrer"
-   style="display: inline-block; background-color: #c39f48; color: #1a213f; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; margin-bottom: 30px;">
-  Open Contact Form
-</a>
-              
-    <h3>Office Location</h3>
+        <p class="lang-english"><strong>For consultations, you may directly contact your preferred counsel.</strong></p>
+        <p class="lang-tagalog"><strong>Para sa konsultasyon, maaaring direktang makipag-ugnayan sa napiling abogado.</strong></p>
+  
+        <p class="lang-english"><strong>Should you prefer to communicate through a contact form, kindly click the link below to send us your message. We shall respond at the soonest opportunity.</strong></p>
+        <p class="lang-tagalog"><strong>Kung nais ninyong makipag-ugnayan sa pamamagitan ng contact form, i-click lamang ang link sa ibaba at kami'y tutugon sa lalong madaling panahon.</strong></p>
+  
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBYfZx-K6FYTQn7upjDPrl2S3MHSWmGaKFK-VH3RzH1076zg/viewform" target="_blank" rel="noopener noreferrer"
+           style="display: inline-block; background-color: #c39f48; color: #1a213f; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; margin-bottom: 30px;">
+          <span class="lang-english">Open Contact Form</span>
+          <span class="lang-tagalog">Buksan ang Contact Form</span>
+        </a>
+  
+        <h3 class="lang-english">Office Location</h3>
+        <h3 class="lang-tagalog">Lokasyon ng Opisina</h3>
         <h3>209 V. Rama Avenue, Brgy. Calamba, Cebu City, Philippines 6000</h3>
       </div>
-      
+  
+
+      <!-- ===== EMBEDDED CALENDAR ===== -->
+    <div style="margin-top: 20px;">
+      <h3 class="lang-english">Book a Schedule</h3>
+      <h3 class="lang-tagalog">Mag-iskedyul ng Konsultasyon</h3>
+      <iframe src="https://calendar.google.com/calendar/embed?src=en.philippines%23holiday%40group.v.calendar.google.com&ctz=Asia%2FManila"
+              style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+    </div>
+  </section>
+
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3223.8878166195243!2d123.89670091523944!3d10.31081939222412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a997b8fdb2a1e7%3A0x2e70a45a1f1b222b!2s209%20V.%20Rama%20Ave%2C%20Cebu%20City%2C%20Cebu%2C%20Philippines!5e0!3m2!1sen!2sph!4v1681083332801" 
           width="100%" 
           height="450" 
@@ -616,7 +659,8 @@ footer {
    
   <!-- ===== FOOTER ===== -->
   <footer>
-    <p>&copy; 2025 209 Law Offices. All Rights Reserved.</p>
+    <p class="lang-english">&copy; 2025 209 Law Offices. All Rights Reserved.</p>
+    <p class="lang-tagalog">&copy; 2025 209 Law Offices. Lahat ng Karapatan ay Nakalaan.</p>
   </footer>
 
   <!-- ===== Back to Top Button ===== -->
@@ -706,6 +750,12 @@ revealElements.forEach(el => revealObserver.observe(el));
 
     });
     
+function switchLang(lang) {
+document.querySelectorAll('.lang-english').forEach(el => el.style.display = lang === 'en' ? 'block' : 'none');
+document.querySelectorAll('.lang-tagalog').forEach(el => el.style.display = lang === 'tl' ? 'block' : 'none');
+}
+switchLang('en'); // default to English
+
   </script>
   <!-- ===== JAVASCRIPT SECTION END ===== -->
 
