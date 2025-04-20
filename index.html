@@ -11,14 +11,22 @@
   <!-- ===== CSS SECTION START ===== -->
   <style>
   /* ===== BASE STYLES ===== */
-    body {
-      font-family: "Georgia", serif;
-      margin: 0;
-      padding: 0;
-      background: #f7f7f7;
-      color: #1a213f; /* Deep Navy text (adjust as needed) */
-      line-height: 1.6;
+  body {
+  font-family: "Georgia", serif;
+  margin: 0;
+  padding: 0;
+  color: #1a213f;
+  line-height: 1.6;
+  background: #f7f7f7 url('https://attybeth.github.io/209lawoffices/images/full-background.JPG') center center / cover no-repeat fixed;
+ }
+
+    h1, h2, h3 {
+      margin-top: 0;
     }
+
+    html {
+     scroll-behavior: smooth;
+     }
 
   /* ===== HEADER SECTION ===== */  
   header {
@@ -35,6 +43,15 @@
     text-align: center;
     overflow: hidden;
   }
+/* Optional dark overlay */
+header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
 
 .header-overlay {
   display: flex;
@@ -67,15 +84,7 @@
   letter-spacing: 0.5px;
 }
 
-/* Optional dark overlay */
-header::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 0;
-}
+
 /* ===== NAVIGATION ===== */
 nav ul {
   list-style: none;
@@ -96,6 +105,7 @@ nav ul li a:hover {
   color: #4E342E;
 }
 
+/* === LAYOUT === */
 .container {
   width: 90%;
   max-width: 1100px;
@@ -106,7 +116,7 @@ section {
   margin-bottom: 40px;
 }
 
-/* Grouping lawyer cards by row */
+/* === LAWYER CARDS === */
 .lawyer-list {
   display: flex;
   flex-direction: column;
@@ -128,25 +138,70 @@ section {
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
 }
-
+/* Existing styles... */
 .lawyer-card img {
-  width: 170px;
-  height: 170px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center top; /* 👈 Prioritizes the head */
-  margin-bottom: 15px;
-  border: 4px solid #c39f48; /* Warm gold border */
-}
-    h1, h2, h3 {
-      margin-top: 0;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top; /* 👈 Prioritizes the head */
+      margin-bottom: 15px;
+      border: 4px solid #c39f48; /* Warm gold border */
+      transition: transform 0.4s ease;
+      }
+ .lawyer-card:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+ }
+ /* Lawyer card hover effect */
+ .lawyer-card:hover img {
+   transform: scale(1.05);
+ }
+
+    .lawyer-card h3 {
+     font-size: 1.15em;
+     margin-bottom: 10px;
+     color: #1a213f;
     }
-    section h2 {
-  color: #fdf6e3;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .contact-info a {
+      color: #1a213f;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95em;
+      transition: color 0.3s ease, background-color 0.3s;    /* Highlight each contact info line */
+      padding: 4px 8px;
+      border-radius: 6px;
+     }
+ 
+    .contact-info a:hover {
+      color: #4E342E;
+      text-decoration: underline;
+    }
+    .contact-info a.highlighted-contact {
+      background-color: rgba(255, 255, 0, 0.2);
+      transform: scale(1.05);
+    }
+    .lawyer-card.highlighted {
+  animation: highlightFade 2s ease-in-out;
 }
-    footer {
+@keyframes highlightFade {
+      0% { background-color: #fff3cd; }
+      100% { background-color: #c39f48; }
+    }
+
+    /* === FOOTER === */
+footer {
       background: #c39f48; /* Warm Gold footer text */
       color: #4E342E; /* Dark Brown footer background */
       text-align: center;
@@ -163,42 +218,16 @@ section {
         align-items: center;
       }
     }
-
-.lawyer-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.2);
-}
-.lawyer-card h3 {
-  font-size: 1.15em;
-  margin-bottom: 10px;
-  color: #1a213f;
-}
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  margin-top: 10px;
-}
+    section h2 {
+  color: #fdf6e3;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+} 
 
 .contact-info p {
   margin: 6px 0;
   text-align: center;
 }
 
-.contact-info a {
-  color: #1a213f;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.95em;
-  transition: color 0.2s ease;
-}
-.contact-info a:hover {
-  color: #4E342E;
-  text-decoration: underline;
-}
 .highlight-paragraph {
   background-color: rgba(253, 246, 227, 0.25); /* lighter transparency */
   padding: 20px;
@@ -206,7 +235,6 @@ section {
   border-radius: 6px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   margin-top: 15px;
-
   color: #f5f5f5; /* Darker text for better readability */
   font-weight: bold;
 }
@@ -214,11 +242,6 @@ section {
 .highlight-section h2 {
   color: #4E342E;              /* Dark brown for the section title */
 }
-
-html {
-  scroll-behavior: smooth;
-}
-
 @keyframes highlightFade {
   0% {
     background-color: #fff3cd; /* light gold highlight */
@@ -227,18 +250,45 @@ html {
     background-color: #c39f48; /* revert back to warm gold */
   }
 }
+/* Additional Animation for Julibeth Card */
+@keyframes glowPulse {
+      0% { box-shadow: 0 0 0 0 rgba(255, 255, 0, 0.8); }
+      50% { box-shadow: 0 0 25px 15px rgba(255, 255, 0, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 255, 0, 0); }
+    }
 
-.lawyer-card.highlighted {
-  animation: highlightFade 2s ease-in-out;
-}
-@keyframes softHighlight {
-  0% {
-    background-color: #fff3cd;
-  }
-  100% {
-    background-color: transparent;
-  }
-}
+    .lawyer-card.glow {
+      animation: glowPulse 2.2s ease-in-out;
+    }
+
+    /* More Intense Sparkle effect on hover */
+    .lawyer-card:hover::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.8) 10%, transparent 11%),
+                        radial-gradient(circle, rgba(255,255,255,0.5) 10%, transparent 11%),
+                        radial-gradient(circle, rgba(255,255,0,0.6) 6%, transparent 7%);
+      background-position: 20% 30%, 80% 70%, 50% 50%;
+      background-size: 6px 6px;
+      background-repeat: no-repeat;
+      pointer-events: none;
+      animation: sparkle 1.2s infinite linear;
+    }
+
+    @keyframes sparkle {
+      0% { background-position: 20% 30%, 80% 70%, 50% 50%; }
+      50% { background-position: 25% 35%, 75% 65%, 48% 52%; }
+      100% { background-position: 20% 30%, 80% 70%, 50% 50%; }
+    }
+
+     /* Highlight each contact info line */
+    .contact-info a {
+      transition: transform 0.3s, background-color 0.3s;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+
 @keyframes fadeDown {
   0% { opacity: 0; transform: translateY(-20px); }
   100% { opacity: 1; transform: translateY(0); }
@@ -265,21 +315,9 @@ html {
   width: 100%;                     /* underline expands on hover */
 }
 
-
-
-/* Lawyer card hover effect */
-
-.lawyer-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.15);  /* subtle shadow on hover */
-}
 /* If the card contains an image: */
-.lawyer-card img {
-  transition: transform 0.4s ease;
-}
-.lawyer-card:hover img {
-  transform: scale(1.05);
-}
+
+
 @media (prefers-reduced-motion: reduce) {
   .reveal { 
     transform: none !important;
@@ -373,73 +411,15 @@ html {
 .map {
   margin-bottom: 30px;
 }
-body {
-  font-family: "Georgia", serif;
-  margin: 0;
-  padding: 0;
-  color: #1a213f;
-  line-height: 1.6;
 
-  background-image: url('https://attybeth.github.io/209lawoffices/images/full-background.JPG');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-}
+
 
 /* Add a semi-transparent layer to soften the background for content */
 .container {
   padding: 20px;
 }
 
-
-/* Additional Animation for Julibeth Card */
-@keyframes glowPulse {
-      0% { box-shadow: 0 0 0 0 rgba(255, 255, 0, 0.8); }
-      50% { box-shadow: 0 0 25px 15px rgba(255, 255, 0, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(255, 255, 0, 0); }
-    }
-
-    .lawyer-card.glow {
-      animation: glowPulse 2.2s ease-in-out;
-    }
-
-    /* More Intense Sparkle effect on hover */
-    .lawyer-card:hover::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-image: radial-gradient(circle, rgba(255,255,255,0.8) 10%, transparent 11%),
-                        radial-gradient(circle, rgba(255,255,255,0.5) 10%, transparent 11%),
-                        radial-gradient(circle, rgba(255,255,0,0.6) 6%, transparent 7%);
-      background-position: 20% 30%, 80% 70%, 50% 50%;
-      background-size: 6px 6px;
-      background-repeat: no-repeat;
-      pointer-events: none;
-      animation: sparkle 1.2s infinite linear;
-    }
-
-    @keyframes sparkle {
-      0% { background-position: 20% 30%, 80% 70%, 50% 50%; }
-      50% { background-position: 25% 35%, 75% 65%, 48% 52%; }
-      100% { background-position: 20% 30%, 80% 70%, 50% 50%; }
-    }
-
-    .lawyer-card {
-      position: relative;
-    }
-    /* Highlight each contact info line */
-    .contact-info a {
-      transition: transform 0.3s, background-color 0.3s;
-      padding: 4px 8px;
-      border-radius: 6px;
-    }
-
-    .contact-info a.highlighted-contact {
-      background-color: rgba(255, 255, 0, 0.2);
-      transform: scale(1.05);
-    }
-
+/* Back To Top Buttonr */
     #backToTop {
      position: fixed;
      bottom: 30px;
@@ -473,58 +453,11 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
-
-    /* Lightbox Styles */
-    .lightbox-overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    .lightbox-overlay.active {
-      display: flex;
-    }
-
-    .lightbox-overlay img {
-      max-width: 90%;
-      max-height: 80%;
-      border-radius: 12px;
-      box-shadow: 0 0 25px rgba(255,255,255,0.2);
-    }
-
-    .lightbox-overlay:after {
-      content: "✖";
-      position: absolute;
-      top: 20px; right: 30px;
-      font-size: 2em;
-      color: white;
-      cursor: pointer;
-    }
-
-    /* Lightbox-enabled image cursor */
-    .lightbox-enabled {
-      cursor: zoom-in;
-    }
-
-    /* Existing styles... */
-    .lawyer-card img {
-      width: 170px;
-      height: 170px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center top;
-      margin-bottom: 15px;
-      border: 4px solid #c39f48;
-    }
-
+  
+    
 </style>
-
 <!-- ===== CSS SECTION END ===== -->
+
 </head>
 <!-- ===== HEAD SECTION END ===== -->
 
@@ -532,7 +465,7 @@ body {
   <!-- ===== HEADER ===== -->
   <header>
     <div class="header-overlay">
-      <img src="https://attybeth.github.io/209lawoffices/images/justice-logo.JPG" alt="Justice Logo" class="header-logo fade-in" id="logo-img">>
+      <img src="https://attybeth.github.io/209lawoffices/images/justice-logo.JPG" alt="Justice Logo" class="header-logo fade-in" id="logo-img">
       <div class="header-text fade-in delay-1">
         <h1 id="law-office-name">209 LAW OFFICES</h1>
         <h2 id="law-office-tagline">Attorneys-At-Law | Notaries Public</h2>
@@ -580,31 +513,8 @@ body {
         “Each counsel in this office exercises the legal profession in a manner consistent with its highest traditions—measured, principled, and mindful of its public trust.”
       </p>
     </section>
-    <!-- Lightbox container -->
-  <div class="lightbox-overlay" id="lightbox-overlay"></div>
 
-  <!-- Add class="reveal" to section for animation -->
-  <section id="home" class="reveal">
-    <!-- content -->
-  </section>
-    <!-- Add class="reveal" to section for animation -->
-  <section id="home" class="reveal">
-    <!-- content -->
-  </section>
-
-  <section id="about" class="reveal">
-    <!-- content -->
-  </section>
-
-  <section id="lawyers" class="reveal">
-    <!-- content -->
-  </section>
-
-  <section id="contact" class="reveal">
-    <!-- content -->
-  </section>
-
-    <!-- ===== LAWYERS SECTION ===== -->
+      <!-- ===== LAWYERS SECTION ===== -->
     <section id="lawyers">
       <h2>Meet the Lawyers</h2>
       <div class="lawyer-list">
@@ -641,30 +551,30 @@ body {
             <div class="contact-info">
                     
               <!-- Add this 👇 -->
-                    <!-- Facebook page -->
-                    <a href="https://www.facebook.com/BethQuinain" target="_blank">
+                   <!-- Facebook page -->
+                   <a href="https://www.facebook.com/BethQuinain" target="_blank">
                       <span class="contact-icon">📘</span>
                       <span>facebook.com/BethQuinain</span>
-                    </a>
-                    <!-- gmail -->
-                    <a href="mailto:julibeth.tio@gmail.com">
-                      <span class="contact-icon">✉️</span>
-                      <span>julibeth.tio@gmail.com</span>
-                    </a>
-                    <!-- mobile No. -->  
-                    <a href="tel:+639177751982">
-                    <span class="contact-icon">📱</span>
-                    <span>0917-775-1982</span>
+                   </a>
+                   <!-- gmail -->
+                   <a href="mailto:julibeth.tio@gmail.com">
+                       <span class="contact-icon">✉️</span>
+                       <span>julibeth.tio@gmail.com</span>
+                   </a>
+                   <!-- mobile No. -->  
+                   <a href="tel:+639177751982">
+                       <span class="contact-icon">📱</span>
+                       <span>0917-775-1982</span>
                    </a>
                    <!-- Tel. No. -->
                    <a href="tel:+63322381300">
-                   <span class="contact-icon">☎️</span>
-                   <span>238-1300</span>
-                  </a>
-                  <!-- Personalized Google Form -->
-                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBYfZx-K6FYTQn7upjDPrl2S3MHSWmGaKFK-VH3RzH1076zg/viewform" target="_blank" rel="noopener noreferrer" style="margin-top: 10px; display: inline-block; background-color: #c39f48; color: #1a213f; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold;">
-                Contact Atty. Julibeth via Form
-                 </a>
+                       <span class="contact-icon">☎️</span>
+                       <span>238-1300</span>
+                   </a>
+                   <!-- Personalized Google Form -->
+                   <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBYfZx-K6FYTQn7upjDPrl2S3MHSWmGaKFK-VH3RzH1076zg/viewform" target="_blank" rel="noopener noreferrer" style="margin-top: 10px; display: inline-block; background-color: #c39f48; color: #1a213f; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold;">
+                   Contact Atty. Julibeth via Form
+                   </a>
         
             </div>
           </div>      
@@ -702,18 +612,16 @@ body {
           loading="lazy">
         </iframe>
       </div>
-       
-     
+   
+   
   <!-- ===== FOOTER ===== -->
   <footer>
     <p>&copy; 2025 209 Law Offices. All Rights Reserved.</p>
   </footer>
 
-<!-- ===== Back to Top Button ===== -->
+  <!-- ===== Back to Top Button ===== -->
   <button id="backToTop" title="Go to top">⬆
-
   </button>
-
 
   <!-- ===== JAVASCRIPT SECTION ===== -->
   <script>
@@ -730,11 +638,10 @@ body {
           setTimeout(() => link.classList.remove("highlighted-contact"), 1800 + index * 100);
         });
 
-         
         setTimeout(() => {
           julibethCard.classList.remove("highlighted", "glow");
         }, 2200);
-      };
+       };
 
       // Initial pulse on load
       pulseHighlight();
@@ -784,8 +691,7 @@ btn.onclick = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
-<!-- ===== Scroll Reveal Animation ===== -->
-
+// ===== Scroll Reveal Animation =====
 const revealElements = document.querySelectorAll('.reveal');
 
 const revealObserver = new IntersectionObserver((entries) => {
@@ -798,21 +704,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 revealElements.forEach(el => revealObserver.observe(el));
 
-// === Lightbox functionality ===
-const lightbox = document.getElementById('lightbox-overlay');
-      document.querySelectorAll('.lightbox-enabled').forEach(img => {
-        img.addEventListener('click', () => {
-          lightbox.innerHTML = `<img src="${img.src}" alt="">`;
-          lightbox.classList.add('active');
-        });
-      });
-
-      lightbox.addEventListener('click', () => {
-        lightbox.classList.remove('active');
-      });
-
     });
-
     
   </script>
   <!-- ===== JAVASCRIPT SECTION END ===== -->
